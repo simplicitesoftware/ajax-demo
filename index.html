@@ -28,11 +28,11 @@ $(document).ready(function() {
                 // Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
                 $.ajax({ url: root + "rest/DemoProduct?_inline_thumbnails=true", data: { demoPrdAvailable: true } }).done(function(products) {
                         $("#nbproducts").text(products.length);
-                        var $p = $("#products");
+                        var $p = $("#products").empty();
                         for (var k in products) {
                                 var p = products[k];
                                 log(p);
-                                $p.empty().append($("<h3/>").append(p.demoPrdReference + " " + p.demoPrdName))
+                                $p.append($("<h3/>").append(p.demoPrdReference + " " + p.demoPrdName))
                                         .append($("<div/>").append(p.demoPrdDescription))
                                         .append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }))
                                         .append($("<div/>").addClass("doc").append(p.demoPrdDocumentation));
