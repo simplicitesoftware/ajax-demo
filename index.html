@@ -32,7 +32,7 @@ $(document).ready(function() {
                         for (var k in products) {
                                 var p = products[k];
                                 log(p);
-                                $p.append($("<h3/>").append(p.demoPrdReference + " " + p.demoPrdName))
+                                $p.empty().append($("<h3/>").append(p.demoPrdReference + " " + p.demoPrdName))
                                         .append($("<div/>").append(p.demoPrdDescription))
                                         .append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }))
                                         .append($("<div/>").addClass("doc").append(p.demoPrdDocumentation));
