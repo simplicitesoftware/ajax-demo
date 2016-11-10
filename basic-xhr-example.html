@@ -4,16 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Ajax call on REST service example</title>
 <style type="text/css">
-body { font-family: Helvetica,Arial,sans-serif; }
+body { font-family: Helvetica, Arial, sans-serif; }
 </style>
 <script type="text/javascript">
 window.onload = function() {
+        var username = "website";
+        var password = "simplicite";
         var xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
-        xhr.open("POST", "https://dev32.simplicite.cloud/api/rest/", true);
+        xhr.open("POST", "https://demo.simplicite.cloud/api/rest/", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        xhr.setRequestHeader("X-Simplicite-Authorization", "Basic " + btoa("designer:S1mplicite_"));
+        xhr.setRequestHeader("X-Simplicite-Authorization", "Basic " + btoa(username + ":" + password));
         xhr.send();
         xhr.onerror = function(e) { console.log("Error: " + e.target.status); };
         xhr.onload = function() {
