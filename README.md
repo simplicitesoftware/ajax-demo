@@ -7,7 +7,14 @@ Ajax web frontend demo
 
 This project is a **very basic** web front-end demo written in a single HTML page (including jQuery&reg;) using the Simplicit&eacute;&reg; REST services.
 
+The file to use is `index.html`
+
 If you want to use your own Simplicit&eacute;&reg; instance you just need to adjust the root URL in the `root` variable to point to your instance's base API URL (typically `http[s]://<my host>/[<mycontextroot>]/api`)
+
+Some other very basic examples are provided:
+
+- `basic-xhr-example.html`: simple call to the user data REST service using the standard low-level `XMLHttpRequest`
+- `basic-ajaxlib-example.html`: same example as above but using Simplicit&eacute;'s Ajax wrapper library
 
 Authentication method
 ---------------------
