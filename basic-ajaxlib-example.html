@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Ajax lib example</title>
+<style type="text/css">
+body { font-family: Helvetica, Arial, sans-serif; }
+</style>
+<script type="text/javascript" src="https://demo.simplicite.cloud/scripts/ajax/appsession.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+        var username = "website";
+        var password = "simplicite";
+        var app = new Simplicite.Ajax("https://dev32.simplicite.cloud", "api", username, password);
+        app.getGrant(function(grant) {
+                document.getElementById("main").innerHTML = "<p>Hello " + grant.login + "!</p>";
+        });
+}
+</script>
+</head>
+<body>
+<div id="main"></div>
+</body>
