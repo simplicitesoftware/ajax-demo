@@ -6,12 +6,12 @@
 <style type="text/css">
 body { font-family: Helvetica, Arial, sans-serif; }
 </style>
-<script type="text/javascript" src="https://demo.simplicite.cloud/scripts/ajax/appsession.js"></script>
+<script type="text/javascript" src="https://demo40.simplicite.cloud/scripts/ajax/appsession.js"></script>
 <script type="text/javascript">
 window.onload = function() {
         var username = "website";
         var password = "simplicite";
-        var app = new Simplicite.Ajax("https://dev32.simplicite.cloud", "api", username, password);
+        var app = new Simplicite.Ajax("https://dev40.simplicite.cloud", "api", username, password);
         app.getGrant(function(grant) {
                 document.getElementById("main").innerHTML = "<p>Hello " + grant.login + "!</p>";
         });
