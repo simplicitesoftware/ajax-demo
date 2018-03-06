@@ -26,14 +26,14 @@ $(document).ready(function() {
                 opts.headers = { "X-Simplicite-Authorization": "Bearer " + user.authtoken }
                 $.ajaxSetup(opts);
                 // Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
-                $.ajax({ url: root + "rest/DemoProduct?_inline_pictures=true", data: { demoPrdAvailable: true } }).done(function(products) {
+                $.ajax({ url: root + "rest/DemoProduct?_inline_thumbnails=true", data: { demoPrdAvailable: true } }).done(function(products) {
                         $("#nbproducts").text(products.length);
                         var $p = $("#products").empty();
                         for (var k in products) {
                                 var p = products[k];
                                 log(p);
                                 $p.append($("<div/>").addClass("card").append($("<div/>").addClass("card-body")
-									.append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.picture }))
+									.append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }))
 									.append($("<h5/>").addClass("card-title").append(p.demoPrdReference + " " + p.demoPrdName))
 									.append($("<h6/>").addClass("card-subtitle mb-2 text-muted").append(p.demoPrdDescription))
 									.append(p.demoPrdDocumentation)
