@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="shortcut icon" href="favicon.png"/>
+<title>Demo (jQuery+Bootstrap)</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1>List of products</h1>
+<h2>There are <span id="nbproducts">0</span> product(s) available</h2>
+<div id="products">Loading...</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var debug = false;
+function log(msg) { if (debug) console.log(msg); }
+var root = "https://demo40.simplicite.cloud/api/";
+var opts = { crossDomain: true, xhrFields: { withCredentials: true } };
+$(document).ready(function() {
+        $.ajaxSetup(opts);
+        // Call to login endpoint to get a auth token
+        $.ajax({ url: root + "login?_output=json", data: { username: "website", password: "simplicite" } }).done(function(user) {
+                log(user);
+                // Add the auth token to the global Ajax options
+                opts.headers = { "X-Simplicite-Authorization": "Bearer " + user.authtoken }
+                $.ajaxSetup(opts);
+                // Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
+                $.ajax({ url: root + "rest/DemoProduct?_inline_thumbnails=true", data: { demoPrdAvailable: true } }).done(function(products) {
+                        $("#nbproducts").text(products.length);
+                        var $p = $("#products").empty();
+                        for (var k in products) {
+                                var p = products[k];
+                                log(p);
+                                $p.append($("<div/>").addClass("card").css("width", "18rem")
+										.append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }).addClass("card-img-top"))
+										.append($("<div/>").addClass("card-body")
+											.append($("<h5/>").addClass("card-title").append(p.demoPrdReference + " " + p.demoPrdName))
+											.append($("<h6/>").addClass("card-subtitle mb-2 text-muted").append(p.demoPrdDescription))
+											.append(p.demoPrdDocumentation)
+										);
+                        }
+                }).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
+        }).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
+});
+</script>
+</body>
