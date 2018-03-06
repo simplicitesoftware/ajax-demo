@@ -32,12 +32,15 @@ $(document).ready(function() {
                         for (var k in products) {
                                 var p = products[k];
                                 log(p);
-                                $p.append($("<div/>").addClass("card").append($("<div/>").addClass("card-body")
-									.append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }))
-									.append($("<h5/>").addClass("card-title").append(p.demoPrdReference + " " + p.demoPrdName))
-									.append($("<h6/>").addClass("card-subtitle mb-2 text-muted").append(p.demoPrdDescription))
-									.append($("<div/>").addClass("alert alert-secondary").append(p.demoPrdDocumentation))
-								));
+                                $p.append($("<div/>").addClass("card text-center")
+									.append($("<div/>").addClass("card-header").append(p.demoPrdReference)
+									.append($("<div/>").addClass("card-body")
+										.append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }))
+										.append($("<h5/>").addClass("card-title").append(p.demoPrdName))
+										.append($("<h6/>").addClass("card-subtitle mb-2 text-muted").append(p.demoPrdDescription))
+										.append($("<div/>").addClass("alert alert-secondary").append(p.demoPrdDocumentation))
+									)
+								);
                         }
                 }).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
         }).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
