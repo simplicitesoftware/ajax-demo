@@ -18,21 +18,21 @@ function log(msg) { if (debug) console.log(msg); }
 var root = "https://demo.dev.simplicite.io/api/";
 var opts = { crossDomain: true, xhrFields: { withCredentials: true } };
 $(document).ready(function() {
-        $.ajaxSetup(opts);
-        // Call to login endpoint to get a auth token
-        $.ajax({ url: root + "login?_output=json", data: { username: "website", password: "simplicite" } }).done(function(user) {
-                log(user);
-                // Add the auth token to the global Ajax options
-                opts.headers = { "X-Simplicite-Authorization": "Bearer " + user.authtoken }
-                $.ajaxSetup(opts);
-                // Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
-                $.ajax({ url: root + "rest/DemoProduct?_inline_thumbnails=true", data: { demoPrdAvailable: true } }).done(function(products) {
-                        $("#nbproducts").text(products.length);
-                        var $p = $("#products").empty();
-                        for (var k in products) {
-                                var p = products[k];
-                                log(p);
-                                $p.append($("<div/>").addClass("card text-center")
+	$.ajaxSetup(opts);
+	// Call to login endpoint to get a auth token
+	$.ajax({ url: root + "login?_output=json", data: { username: "website", password: "simplicite" } }).done(function(user) {
+		log(user);
+		// Add the auth token to the global Ajax options
+		opts.headers = { "X-Simplicite-Authorization": "Bearer " + user.authtoken }
+		$.ajaxSetup(opts);
+		// Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
+		$.ajax({ url: root + "rest/DemoProduct?_inline_thumbnails=true", data: { demoPrdAvailable: true } }).done(function(products) {
+			$("#nbproducts").text(products.length);
+			var $p = $("#products").empty();
+			for (var k in products) {
+				var p = products[k];
+				log(p);
+				$p.append($("<div/>").addClass("card text-center")
 									.append($("<div/>").addClass("card-header").append(p.demoPrdReference))
 									.append($("<div/>").addClass("card-body")
 										.append($("<img/>", { src: "data:" + p.mime + ";base64," + p.demoPrdPicture.thumbnail }))
@@ -41,9 +41,9 @@ $(document).ready(function() {
 										.append($("<div/>").addClass("alert alert-secondary text-left").append(p.demoPrdDocumentation))
 									)
 								);
-                        }
-                }).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
-        }).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
+			}
+		}).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
+	}).fail(function(h=xhr, status, err) { alert("Error: " + err + " (" + status + ")"); });
 });
 </script>
 </body>

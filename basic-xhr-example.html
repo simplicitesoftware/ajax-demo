@@ -9,20 +9,20 @@ body { font-family: Helvetica, Arial, sans-serif; }
 </style>
 <script type="text/javascript">
 window.onload = function() {
-        var username = "website";
-        var password = "simplicite";
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-        xhr.open("POST", "https://demo.dev.simplicite.io/api/rest/", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        xhr.setRequestHeader("X-Simplicite-Authorization", "Basic " + btoa(username + ":" + password));
-        xhr.send();
-        xhr.onerror = function(e) { console.log("Error: " + e.target.status); };
-        xhr.onload = function() {
-                var res = JSON.parse(xhr.responseText);
-                document.getElementById("main").innerHTML = "<p>Hello " + res.grant.login + "!</p>";
-        };
+	var username = "website";
+	var password = "simplicite";
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = true;
+	xhr.open("POST", "https://demo.dev.simplicite.io/api/rest/", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+	xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+	xhr.setRequestHeader("X-Simplicite-Authorization", "Basic " + btoa(username + ":" + password));
+	xhr.send();
+	xhr.onerror = function(e) { console.log("Error: " + e.target.status); };
+	xhr.onload = function() {
+		var res = JSON.parse(xhr.responseText);
+		document.getElementById("main").innerHTML = "<p>Hello " + res.grant.login + "!</p>";
+	};
 }
 </script>
 </head>

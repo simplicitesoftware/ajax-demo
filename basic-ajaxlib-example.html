@@ -10,12 +10,12 @@ body { font-family: Helvetica, Arial, sans-serif; }
 <script type="text/javascript" src="https://demo.dev.simplicite.io/scripts/ajax/bundle.js"></script>
 <script type="text/javascript">
 window.onload = function() {
-        var username = "website";
-        var password = "simplicite";
-        var app = new Simplicite.Ajax("https://demo.dev.simplicite.io", "api", username, password);
-        app.getGrant(function(grant) {
-                document.getElementById("main").innerHTML = "<p>Hello " + grant.login + "!</p>";
-        });
+	var username = "website";
+	var password = "simplicite";
+	var app = new Simplicite.Ajax("https://demo.dev.simplicite.io", "api", username, password);
+	app.getGrant(function(grant) {
+		document.getElementById("main").innerHTML = "<p>Hello " + grant.login + "!</p>";
+	});
 }
 </script>
 </head>
