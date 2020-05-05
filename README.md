@@ -4,6 +4,8 @@
 Ajax web frontend demo
 ======================
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simplicitesoftware_ajax-demo&metric=alert_status)](https://sonarcloud.io/dashboard?id=simplicitesoftware_ajax-demo)
+
 This project is a **very basic** web front-end demo written in a single HTML page (including jQuery&reg;) using the Simplicit&eacute;&reg; REST services.
 
 The file to use is `index.html`
