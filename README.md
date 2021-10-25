@@ -32,6 +32,8 @@ In this very simple case where the login is only a "technical" login the two app
 License
 =======
 
+Copyright 2016-2021 Simplicit&eacute; Software
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at:
