@@ -6,7 +6,7 @@ Ajax web frontend demo
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simplicitesoftware_ajax-demo&metric=alert_status)](https://sonarcloud.io/dashboard?id=simplicitesoftware_ajax-demo)
 
-This project is a **very basic** web front-end demo written in a single HTML page (including jQuery&reg;) using the Simplicit&eacute;&reg; REST services.
+This project is a **very basic** web front-end demo written in a single HTML page (including jQuery&reg; and Bootstrap&reg;) using the Simplicit&eacute;&reg; REST services.
 
 The file to use is `index.html`
 
@@ -14,8 +14,10 @@ If you want to use your own Simplicit&eacute;&reg; instance you just need to adj
 
 Some other very basic examples are provided:
 
-- `basic-xhr-example.html`: simple call to the user data REST service using the standard low-level `XMLHttpRequest`
-- `basic-ajaxlib-example.html`: same example as above but using Simplicit&eacute;'s Ajax wrapper library
+- `xhr-example.html`: simple call to the user data REST service using the standard `XMLHttpRequest` API
+- `fetch-example.html`: simple call to the user data REST service using the standard `fetch` API
+- `ajaxlib-example.html`: same example as above but using the instance's Ajax library
+- `jslib-example.html`: same example as above but using the Simplicit&eacute; JS client library
 
 Authentication method
 ---------------------
@@ -32,7 +34,7 @@ In this very simple case where the login is only a "technical" login the two app
 License
 =======
 
-Copyright 2016-2021 Simplicit&eacute; Software
+Copyright 2016-2022 Simplicit&eacute; Software
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
