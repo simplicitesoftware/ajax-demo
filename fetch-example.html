@@ -16,7 +16,7 @@ window.onload = function() {
 		}
 	).then(r => r.json()).then((user) => {
 		console.log(user);
-		document.getElementById("main").innerHTML = "<p>Hello " + user.login + "!</p>";
+		document.getElementById('main').innerHTML = '<p>Hello ' + user.login + '!</p>';
 	});
 }
 </script>
