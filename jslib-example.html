@@ -9,7 +9,7 @@ body { font-family: Helvetica, Arial, sans-serif; }
 </style>
 <script type="text/javascript" src="https://unpkg.com/simplicite@2.2.25/dist/simplicite.min.js"></script>
 <script type="text/javascript">
-window.onload = function() {
+window.onload = () => {
 	const app = simplicite.session({ url: 'https://demo.dev.simplicite.io' });
 	app.login({ username: 'website', password: 'simplicite' }).then(user => {
 		console.log(user);

@@ -9,7 +9,7 @@ body { font-family: Helvetica, Arial, sans-serif; }
 </style>
 <script type="text/javascript" src="https://demo.dev.simplicite.io/scripts/ajax/ajax-bundle.js"></script>
 <script type="text/javascript">
-window.onload = function() {
+window.onload = () => {
 	const app = new Simplicite.Ajax('https://demo.dev.simplicite.io', 'api', 'website', 'simplicite');
 	app.login(user => {
 		console.log(user);
