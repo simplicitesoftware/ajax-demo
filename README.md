@@ -27,7 +27,7 @@ The auth token-based authentication method used in the `index.html` file is the 
 
 Another approach would be to call the REST services providing username and password as a basic auth string. In that case the initial call to the `/api/login` endpoint can be removed and the standard `Authorization` HTTP header or, better, the custom `X-Simplicite-Authorization` HTTP header must be added to each REST service call with `Basic <Base64 encoded username:password>` as value (the `X-Simplicite-Authorization` HTTP header is better as it does not interfere in any way with the browser's default basic auth flow which involves the standard `Authorization` HTTP header).
 
-In this very simple case where the login is only a "technical" login the two approaches are equivalent. In a more complex case where a real user's login and password would be prompted once at first sign in and where next accesses would not require a new sign in, then the auth token approach is definitly the right approach (the auth token obtained at initial sign in can be stored locally, e.g. using `localStrorage` and be reused for next accesses as long as it is not expired or explicitly signed out) 
+In this very simple case where the login is only a "technical" login the two approaches are equivalent. In a more complex case where a real user's login and password would be prompted once at first sign in and where next accesses would not require a new sign in, then the auth token approach is definitly the right approach (the auth token obtained at initial sign in can be stored locally, e.g. using `localStrorage` and be reused for next accesses as long as it is not expired or explicitly signed out)
 
 License
 =======

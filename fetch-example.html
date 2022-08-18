@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<title>Ajax call on REST service example</title>
+<style type="text/css">
+body { font-family: Helvetica, Arial, sans-serif; }
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	fetch(
+		'https://demo.dev.simplicite.io/api/login?_output=json', {
+    		method: 'POST',
+    		headers: { 'X-Simplicite-Authorization': 'Basic ' + btoa('website:simplicite') }
+		}
+	).then(r => r.json()).then((user) => {
+		console.log(user);
+		document.getElementById("main").innerHTML = "<p>Hello " + user.login + "!</p>";
+	});
+}
+</script>
+</head>
+<body>
+<div id="main"></div>
+</body>
