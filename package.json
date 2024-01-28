@@ -1,7 +1,7 @@
 {
   "name": "ajax-demo",
   "description": "Ajax demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Simplicite Software <contact@simplicitesoftware.com> (http://www.simplicitesoftware.com/)",
   "license": "Apache-2.0",
   "repository": {
@@ -9,11 +9,11 @@
     "url": "https://github.com/simplicitesoftware/ajax-demo.git"
   },
   "devDependencies": {
-    "npm-check": "^6.0.1",
-    "serve": "^14.1.2"
+    "npm-check-updates": "^16.14.14",
+    "serve": "^14.2.1"
   },
   "scripts": {
-    "check": "npm-check",
+    "ncu": "ncu",
     "serve": "serve -p 3000 .",
     "start": "npm run serve"
   }
