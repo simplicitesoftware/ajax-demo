@@ -14,7 +14,7 @@
   },
   "scripts": {
     "ncu": "ncu",
-    "serve": "serve -p 3000 .",
-    "start": "npm run serve"
+    "start": "npm run serve",
+    "serve": "serve -p 3000 ."
   }
 }
