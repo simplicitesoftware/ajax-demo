@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.png"/>
-	<title>Ajax lib example</title>
+	<title>Simplicité ajax lib example</title>
 </head>
 <body style="font-family: Helvetica, Arial, sans-serif;">
 	<div id="main"></div>
-	<script type="text/javascript" src="https://demo.dev2.simplicite.io/scripts/ajax/ajax-bundle.js"></script>
-	<script type="text/javascript">
+	<script src="https://demo.dev2.simplicite.io/scripts/ajax/ajax-bundle.js"></script>
+	<script>
 		window.onload = () => {
 			const app = new Simplicite.Ajax('https://demo.dev2.simplicite.io', 'api', 'website', 'simplicite');
 			app.login(user => {

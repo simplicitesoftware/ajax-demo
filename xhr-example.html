@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<link rel="shortcut icon" href="favicon.png"/>
-<title>Ajax call on REST service example</title>
-<style type="text/css">
-body { font-family: Helvetica, Arial, sans-serif; }
-</style>
-<script type="text/javascript">
-window.onload = () => {
-	const xhr = new XMLHttpRequest();
-	xhr.withCredentials = true;
-	xhr.open('POST', 'https://demo.dev2.simplicite.io/api/login?_output=json', true);
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-	xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	xhr.setRequestHeader('X-Simplicite-Authorization', 'Basic ' + btoa('website:simplicite'));
-	xhr.send();
-	xhr.onerror = err => {
-		console.error(err);
-	};
-	xhr.onload = () => {
-		const user = JSON.parse(xhr.responseText);
-		console.log(user);
-		document.getElementById('main').innerHTML = '<p>Hello ' + user.login + '!</p>';
-	};
-}
-</script>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="favicon.png"/>
+	<title>Vanilla JS XHR call on REST service example</title>
 </head>
-<body>
-<div id="main"></div>
+<body style="font-family: Helvetica, Arial, sans-serif;">
+	<div id="main"></div>
+	<script>
+		window.onload = () => {
+			const xhr = new XMLHttpRequest();
+			xhr.withCredentials = true;
+			xhr.open('POST', 'https://demo.dev2.simplicite.io/api/login?_output=json', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			xhr.setRequestHeader('X-Simplicite-Authorization', 'Basic ' + btoa('website:simplicite'));
+			xhr.send();
+			xhr.onerror = err => {
+				console.error(err);
+			};
+			xhr.onload = () => {
+				const user = JSON.parse(xhr.responseText);
+				console.log(user);
+				document.getElementById('main').innerHTML = '<p>Hello ' + user.login + '!</p>';
+			};
+		}
+	</script>
 </body>
