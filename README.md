@@ -17,7 +17,8 @@ Some other very basic examples are provided:
 - `xhr-example.html`: simple call to the user data REST service using the standard `XMLHttpRequest` API
 - `fetch-example.html`: simple call to the user data REST service using the standard `fetch` API
 - `ajaxlib-example.html`: same example as above but using the instance's Ajax library
-- `jslib-example.html`: same example as above but using the Simplicité JS client library
+- `jslib-example.html`: same example as above but using the Simplicité JS client library (CommonJS mode))
+- `jslib-esm-example.html`: same example as above but using the Simplicité JS client library (ESM mode)
 
 Authentication method
 ---------------------

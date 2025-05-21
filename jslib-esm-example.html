@@ -3,12 +3,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link rel="shortcut icon" href="favicon.png"/>
-	<title>Ajax lib example (CommonJS mode)</title>
+	<title>Ajax lib example (ESM mode)</title>
 </head>
 <body style="font-family: Helvetica, Arial, sans-serif;">
 	<div id="main"></div>
-	<script src="https://unpkg.com/simplicite@latest/dist/simplicite.min.js"></script>
-	<script>
+	<script type="module">
+		import simplicite from 'https://unpkg.com/simplicite@latest/dist/simplicite.min.mjs';
 		window.onload = () => {
 			const app = simplicite.session({ url: 'https://demo.dev2.simplicite.io' });
 			app.login({ username: 'website', password: 'simplicite' }).then(user => {
