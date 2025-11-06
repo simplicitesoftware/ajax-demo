@@ -9,7 +9,7 @@
     "url": "https://github.com/simplicitesoftware/ajax-demo.git"
   },
   "devDependencies": {
-    "npm-check-updates": "^19.0.0",
+    "npm-check-updates": "^19.1.2",
     "serve": "^14.2.5"
   },
   "scripts": {
