@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="favicon.png"/>
-	<title>Product catalog</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"/>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="favicon.png"/>
+  <title>Product catalog</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"/>
 </head>
 <body>
-	<div class="container">
-		<h1>List of products</h1>
-		<h2>There are <span id="nbproducts">0</span> product(s) available</h2>
-		<div id="products" class="row" style="padding: 10px;">Loading...</div>
-	</div>
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script>
-		const root = 'https://demo.dev2.simplicite.io/api';
-		const opts = { crossDomain: true, xhrFields: { withCredentials: true } };
-		$(document).ready(() => {
-			$.ajaxSetup(opts);
-			// Call to login endpoint to get a auth token
-			$.ajax({ url: `${root}/login?_output=json`, data: { username: 'website', password: 'simplicite' } }).done(user => {
-				console.log(user);
-				// Add the auth token to the global Ajax options
-				opts.headers = { 'X-Simplicite-Authorization': `Bearer ${user.authtoken}` }
-				$.ajaxSetup(opts);
-				// Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
-				$.ajax({ url: `${root}/rest/DemoProduct?_inline_thumbnails=true`, data: { demoPrdAvailable: true } }).done(products => {
-					$('#nbproducts').text(products.length);
-					const $p = $('#products').empty();
-					for (let k in products) {
-						const p = products[k];
-						console.log(p);
-						$p.append($('<div/>').addClass('col col-lg-4')
-							.append($('<div/>').css('margin', '.25rem').addClass('card')
-								.append($('<div/>').addClass('card-header').append(p.demoPrdReference))
-								.append($('<div/>').addClass('card-body')
-									.append($('<img/>', { src: `data:${p.mime};base64,${p.demoPrdPicture.thumbnail}` }))
-									.append($('<h5/>').addClass('card-title').append(p.demoPrdName))
-									.append($('<h6/>').addClass('card-subtitle mb-2 text-muted').append(p.demoPrdDescription))
-									.append($('<div/>').css('max-height', '10rem').css('overflow', 'auto').addClass('alert alert-secondary').append(p.demoPrdDocumentation))
-								)
-							)
-						);
-					}
-				}).fail((xhr, status, err) => { console.error(err); });
-			}).fail((xhr, status, err) => { console.error(err); });
-		});
-	</script>
+  <div class="container">
+    <h1>List of products</h1>
+    <h2>There are <span id="nbproducts">0</span> product(s) available</h2>
+    <div id="products" class="row" style="padding: 10px;">Loading...</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    /* global $ */
+    const root = 'https://demo.dev2.simplicite.io/api';
+    const opts = { crossDomain: true, xhrFields: { withCredentials: true } };
+    $(document).ready(() => {
+      $.ajaxSetup(opts);
+      // Call to login endpoint to get a auth token
+      $.ajax({ url: `${root}/login?_output=json`, data: { username: 'website', password: 'simplicite' } }).done(user => {
+        console.log(user);
+        // Add the auth token to the global Ajax options
+        opts.headers = { 'X-Simplicite-Authorization': `Bearer ${user.authtoken}` };
+        $.ajaxSetup(opts);
+        // Call search REST service on the DemoProduct object with filter on the demoPrdAvailable field
+        $.ajax({ url: `${root}/rest/DemoProduct?_inline_thumbnails=true`, data: { demoPrdAvailable: true } }).done(products => {
+          $('#nbproducts').text(products.length);
+          const $p = $('#products').empty();
+          for (let k in products) {
+            const p = products[k];
+            console.log(p);
+            $p.append($('<div/>').addClass('col col-lg-4')
+              .append($('<div/>').css('margin', '.25rem').addClass('card')
+                .append($('<div/>').addClass('card-header').append(p.demoPrdReference))
+                .append($('<div/>').addClass('card-body')
+                  .append($('<img/>', { src: `data:${p.mime};base64,${p.demoPrdPicture.thumbnail}` }))
+                  .append($('<h5/>').addClass('card-title').append(p.demoPrdName))
+                  .append($('<h6/>').addClass('card-subtitle mb-2 text-muted').append(p.demoPrdDescription))
+                  .append($('<div/>').css('max-height', '10rem').css('overflow', 'auto').addClass('alert alert-secondary').append(p.demoPrdDocumentation))
+                )
+              )
+            );
+          }
+        }).fail((xhr, status, err) => { console.error(err); });
+      }).fail((xhr, status, err) => { console.error(err); });
+    });
+  </script>
 </body>

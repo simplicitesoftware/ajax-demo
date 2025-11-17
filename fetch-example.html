@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="favicon.png"/>
-	<title>Vanilla JS fetch call on REST service example</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="favicon.png"/>
+  <title>Vanilla JS fetch call on REST service example</title>
 </head>
 <body style="font-family: Helvetica, Arial, sans-serif;">
-	<div id="main"></div>
-	<script>
-		window.onload = () => {
-			fetch(
-				'https://demo.dev2.simplicite.io/api/login?_output=json', {
-					method: 'POST',
-					headers: { 'X-Simplicite-Authorization': 'Basic ' + btoa('website:simplicite') }
-				}
-			).then(r => r.json()).then((user) => {
-				console.log(user);
-				document.getElementById('main').innerHTML = '<p>Hello ' + user.login + '!</p>';
-			});
-		}
-	</script>
+  <div id="main"></div>
+  <script>
+    window.onload = () => {
+      fetch(
+        'https://demo.dev2.simplicite.io/api/login?_output=json', {
+          method: 'POST',
+          headers: { 'X-Simplicite-Authorization': 'Basic ' + btoa('website:simplicite') }
+        }
+      ).then(r => r.json()).then((user) => {
+        console.log(user);
+        document.getElementById('main').innerHTML = '<p>Hello ' + user.login + '!</p>';
+      });
+    };
+  </script>
 </body>

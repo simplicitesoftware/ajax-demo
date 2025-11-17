@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="favicon.png"/>
-	<title>Simplicité client lib example (CommonJS mode)</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="favicon.png"/>
+  <title>Simplicité client lib example (CommonJS mode)</title>
 </head>
 <body style="font-family: Helvetica, Arial, sans-serif;">
-	<div id="main"></div>
-	<script src="https://unpkg.com/simplicite@latest/dist/simplicite.min.js"></script>
-	<script>
-		window.onload = () => {
-			const app = simplicite.session({ url: 'https://demo.dev2.simplicite.io' });
-			app.login({ username: 'website', password: 'simplicite' }).then(user => {
-				console.log(user);
-				document.getElementById('main').innerHTML = `<p>Hello ${user.login}!</p>`;
-			});
-		}
-	</script>
+  <div id="main"></div>
+  <script src="https://unpkg.com/simplicite@latest/dist/simplicite.min.js"></script>
+  <script>
+    /* global simplicite */
+    window.onload = () => {
+      const app = simplicite.session({ url: 'https://demo.dev2.simplicite.io' });
+      app.login({ username: 'website', password: 'simplicite' }).then(user => {
+        console.log(user);
+        document.getElementById('main').innerHTML = `<p>Hello ${user.login}!</p>`;
+      });
+    };
+  </script>
 </body>
