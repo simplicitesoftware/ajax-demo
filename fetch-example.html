@@ -14,7 +14,7 @@
           method: 'POST',
           headers: { 'X-Simplicite-Authorization': 'Basic ' + btoa('website:simplicite') }
         }
-      ).then(r => r.json()).then((user) => {
+      ).then(r => r.json()).then(user => {
         console.log(user);
         document.getElementById('main').innerHTML = '<p>Hello ' + user.login + '!</p>';
       });
