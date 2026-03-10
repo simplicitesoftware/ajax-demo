@@ -1,7 +1,7 @@
 {
   "name": "ajax-demo",
   "description": "Ajax demo",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "author": "Simplicite Software <contact@simplicitesoftware.com> (http://www.simplicitesoftware.com/)",
   "license": "Apache-2.0",
   "repository": {
@@ -10,11 +10,11 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "eslint": "10.0.2",
+    "eslint": "10.0.3",
     "eslint-plugin-html": "8.1.4",
-    "globals": "17.3.0",
-    "npm-check-updates": "19.5.0",
-    "serve": "14.2.5"
+    "globals": "17.4.0",
+    "npm-check-updates": "19.6.3",
+    "serve": "14.2.6"
   },
   "scripts": {
     "lint": "eslint *.html *.mjs",
